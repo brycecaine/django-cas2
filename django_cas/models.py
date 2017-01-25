@@ -89,7 +89,7 @@ class SessionServiceTicket(models.Model):
 
 
     class Meta:
-        db_table = 'django_cas_session_service_ticket'
+        db_table = 'django_cas_session_service1144'
         verbose_name = _('session service ticket')
         verbose_name_plural = _('session service tickets')
 
