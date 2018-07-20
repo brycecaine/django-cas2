@@ -5,8 +5,8 @@ from django.contrib.auth.backends import ModelBackend
 from django.contrib.auth.models import User
 from django_cas.exceptions import CasTicketException
 from django_cas.models import Tgt, PgtIOU
-from urllib import urlencode, urlopen
-from urlparse import urljoin
+from urllib.parse import urlencode, urljoin
+from urllib.request import urlopen
 from xml.dom import minidom
 import logging
 import time
