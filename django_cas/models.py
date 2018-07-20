@@ -13,8 +13,7 @@ from django.dispatch.dispatcher import receiver
 from django.utils.translation import ugettext_lazy as _
 from django_cas.exceptions import CasTicketException
 from urllib.request import urlopen
-from urllib.parse import urlencode
-from urlparse import urljoin
+from urllib.parse import urlencode, urljoin
 from xml.dom import minidom
 
 __all__ = ['Tgt']
