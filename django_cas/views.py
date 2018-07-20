@@ -14,12 +14,6 @@ __all__ = ['login', 'logout', 'proxy_callback']
 
 logger = logging.getLogger(__name__)
 
-# Work around for UnicodeEncodeErrors. 
-def _fix_encoding(x):
-    if type(x) is types.UnicodeType:
-        return x.encode('utf-8');
-    return x
-
 
 def _service(request):
     """ Returns service host URL as derived from request """
@@ -50,12 +44,12 @@ def _redirect_url(request):
     """ Redirects to referring page, or CAS_REDIRECT_URL if no referrer. """
 
     if request.GET.get(auth.REDIRECT_FIELD_NAME):
-        return _fix_encoding(request.GET.get(auth.REDIRECT_FIELD_NAME))
+        return request.GET.get(auth.REDIRECT_FIELD_NAME)
     
     if settings.CAS_IGNORE_REFERER:
         return settings.CAS_REDIRECT_URL
 
-    return _fix_encoding(request.META.get('HTTP_REFERER', settings.CAS_REDIRECT_URL))
+    return request.META.get('HTTP_REFERER', settings.CAS_REDIRECT_URL)
 
 
 def _login_url(service):
