@@ -5,13 +5,14 @@ from django.contrib import auth
 from django.contrib.auth.views import login, logout
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponseRedirect
+from django.utils.deprecation import MiddlewareMixin
 from django_cas.exceptions import CasTicketException
 from django_cas.views import login as cas_login, logout as cas_logout
 from urllib.parse import urlencode
 
 __all__ = ['CASMiddleware']
 
-class CASMiddleware(object):
+class CASMiddleware(MiddlewareMixin):
     """Middleware that allows CAS authentication on admin pages"""
 
     def process_request(self, request):
