@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 class CASBackend(ModelBackend):
     """ CAS authentication backend """
 
-    def authenticate(self, ticket, service):
+    def authenticate(self, request, ticket, service):
         """ Verifies CAS ticket and gets or creates User object """
 
         (username, proxies) = self._verify(ticket, service)
