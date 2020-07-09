@@ -24,7 +24,7 @@ class CASBackend(ModelBackend):
         (username, proxies) = self._verify(ticket, service)
         if not username:
             return None
-        
+          
         # Always lowercase the username passed from CAS
         username = username.lower()
         
