@@ -25,6 +25,9 @@ class CASBackend(ModelBackend):
         if not username:
             return None
         
+        # Always lowercase the username passed from CAS
+        username = username.lower()
+        
         if settings.CAS_ALLOWED_PROXIES:
             for proxy in proxies:
                 if not proxy in settings.CAS_ALLOWED_PROXIES:
