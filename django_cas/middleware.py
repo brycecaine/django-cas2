@@ -2,7 +2,10 @@
 
 from django.conf import settings
 from django.contrib import auth
-from django.contrib.auth.views import login, logout
+try:
+    from django.contrib.auth.views import login, logout
+except ImportError:
+    from django.contrib.auth import login, logout
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponseRedirect
 from django.utils.deprecation import MiddlewareMixin
